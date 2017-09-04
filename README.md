@@ -3,7 +3,7 @@
 
 ## 选拔赛题目二：
 **运行：**
-``` python
+``` shell
 $ pip install Flask
 $ FLASK_APP=section02.py flask run
 ```
