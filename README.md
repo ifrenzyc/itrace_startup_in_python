@@ -1,6 +1,15 @@
 # itrace_startup_in_python
 2017 itrace startup in python
 
+## 安装 pip
+Python的第三方包依赖需要通过 pip 安装：
+因此，我们在部署环境上需要先安装好pip，并安装第三方类库。Python2.x版本是没有自带pip 的：
+``` shell
+$ wget https://bootstrap.pypa.io/get-pip.py
+$ su - root  # 切换到 root 用户
+# python get-pip.py
+```
+
 ## 选拔赛题目二：
 **运行：**
 ``` shell
