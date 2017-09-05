@@ -24,6 +24,7 @@ $ FLASK_APP=section02.py flask run
 
 ``` shell
 $ pip install SQLAlchemy flask-sqlalchemy pymysql
+$ FLASK_APP=section02.py flask run
 ```
 
 例子接口：
