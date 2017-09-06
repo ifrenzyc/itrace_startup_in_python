@@ -14,7 +14,7 @@ $ su - root  # 切换到 root 用户
 **运行：**
 ``` shell
 $ pip install Flask
-$ FLASK_APP=section02.py flask run
+$ python section02.py
 ```
 
 ## ORM 集成
@@ -24,7 +24,7 @@ $ FLASK_APP=section02.py flask run
 
 ``` shell
 $ pip install SQLAlchemy flask-sqlalchemy pymysql
-$ FLASK_APP=section02.py flask run
+$ python section02.py
 ```
 
 例子接口：

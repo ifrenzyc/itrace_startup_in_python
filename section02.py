@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 
-from flask import Flask
+from flask import Flask 
 from flask_sqlalchemy import SQLAlchemy
 from flask import request
 app = Flask(__name__)
@@ -30,6 +30,13 @@ def openstack():
 def get_cust():
     cust = Cust.query.all()
     return cust[0].cust_name
+
+
+if __name__ == "__main__":
+    app.run(
+        host="0.0.0.0",
+        port=5000
+    )
 
 
 class Cust(db.Model):
