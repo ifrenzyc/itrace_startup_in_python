@@ -27,6 +27,26 @@ $ pip install SQLAlchemy flask-sqlalchemy pymysql
 $ python section02.py
 ```
 
+### 用到的 Cust 表结构
+`section02.py` 里面用到的是 cust表，其表结构和数据如下：
+
+``` sql
+CREATE TABLE `cust` (
+  `cust_id` bigint(20) NOT NULL,
+  `area_id` int(11) DEFAULT NULL,
+  `create_date` datetime DEFAULT NULL,
+  `cust_group_id` bigint(20) DEFAULT NULL,
+  `cust_name` varchar(255) DEFAULT NULL,
+  `cust_number` varchar(255) DEFAULT NULL,
+  `update_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`cust_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+insert into cust (cust_id, area_id, create_date, cust_group_id, cust_name, cust_number, update_date) values (1001, 200, "2017-09-04 19:59:29", 10010, "itsyc", "233", "2017-09-04 19:59:29");
+insert into cust (cust_id, area_id, create_date, cust_group_id, cust_name, cust_number, update_date) values (1002, 200, "2017-09-04 19:59:29", 10011, "张三", "2233", "2017-09-04 19:59:29");
+```
+
 例子接口：
 [http://127.0.0.1:5000/cust/get](http://127.0.0.1:5000/cust/get)
 
