@@ -32,13 +32,6 @@ def get_cust():
     return cust[0].cust_name
 
 
-if __name__ == "__main__":
-    app.run(
-        host="0.0.0.0",
-        port=5000
-    )
-
-
 class Cust(db.Model):
     cust_id = db.Column(db.Integer, primary_key=True, unique=True)
     area_id = db.Column(db.Integer)
@@ -59,3 +52,10 @@ class Cust(db.Model):
 
     def __repr__(self):
         return '<Cust %r>' % self.cust_name
+
+
+if __name__ == "__main__":
+    app.run(
+        host="0.0.0.0",
+        port=5000
+    )
