@@ -10,18 +10,19 @@ trainFile = "/Users/yangc/src/2017_itrace/itrace_startup_in_python/service.txt"
 pwd = os.getcwd()  # 查看当前工作目录
 os.chdir(os.path.dirname(trainFile))  # 修改当前工作目录
 
-td = pd.read_csv(os.path.basename(trainFile), sep='|', header=None
-                 , names=["uuid", "ser_name", "cust_begin", "serv_begin", "serv_end", "cust_end", "for_time", "back_time"])
+column_names = ["uuid", "ser_name", "cust_begin", "serv_begin", "serv_end", "cust_end", "for_time", "back_time"]
+
+td = pd.read_csv(os.path.basename(trainFile), sep='|', header=None, names=column_names)
 
 os.chdir(pwd)
 td.head()
 
 grouped = td.groupby(['ser_name'])
 gm = grouped.aggregate({'for_time': np.mean})
-print(gm.sort_values(by=['for_time'], ascending=[False]).head())
+print(gm.sort_values(by=['for_time'], ascending=[False]).head(n=5))
 
 td['diff'] = td['back_time'] - td['for_time']
 
 std = td.sort_values(by=['diff'], ascending=[False])
 
-print(std[['ser_name', 'diff']].head())
+print(std[['ser_name', 'diff']].head(n=5))
