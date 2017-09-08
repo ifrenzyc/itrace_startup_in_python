@@ -13,17 +13,31 @@ def hello():
     return "Hello World!"
 
 
+current_stat = ""
+
+
 @app.route("/itsyc/openstack")
 def openstack():
+    global current_stat
+
     action = request.args.get('action')
-    return {
-        "create": "running",
-        "suspend": "suspended",
-        "pause": "paused",
-        "unpause": "running",
-        "resume": "running",
-        "stop": "stoped"
-    }.get(action, "error")
+    step = current_stat + "|" + action
+
+    if "|create" == step:
+        current_stat = "running"
+    elif "running|suspend" == step:
+        current_stat = "suspended"
+    elif "running|pause" == step:
+        current_stat = "paused"
+    elif "suspended|resume" == step:
+        current_stat = "running"
+    elif "paused|unpause" == step:
+        current_stat = "running"
+    elif "running|stop" == step:
+        current_stat = "stop"
+    else:
+        return "error"
+    return current_stat
 
 
 @app.route("/cust/get")
