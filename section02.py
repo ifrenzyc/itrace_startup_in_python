@@ -8,7 +8,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:Aa123456@127.0.0.1
 db = SQLAlchemy(app)
 
 
-@app.route("/")
+@app.route("/", methods=['GET'])
 def hello():
     return "Hello World!"
 
@@ -16,7 +16,12 @@ def hello():
 current_stat = ""
 
 
-@app.route("/itsyc/openstack")
+@app.route("/<username>", methods=['GET'])
+def hello_with_username(username):
+    return "Hello " + username + "!"
+
+
+@app.route("/itsyc/openstack", methods=['GET'])
 def openstack():
     global current_stat
 
@@ -71,5 +76,6 @@ class Cust(db.Model):
 if __name__ == "__main__":
     app.run(
         host="0.0.0.0",
-        port=5000
+        port=5000,
+        debug=True
     )
