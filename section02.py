@@ -70,7 +70,7 @@ class Cust(db.Model):
         self.update_date = update_date
 
     def __repr__(self):
-        return '<Cust %r>' % self.cust_name
+        return '<Cust %r %s %s>' % (self.cust_id, self.cust_name, self.cust_number)
 
 
 if __name__ == "__main__":
